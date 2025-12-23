@@ -2,11 +2,15 @@ package pages.forms;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Link;
+import io.qameta.allure.Param;
+import io.qameta.allure.Step;
 import lombok.extern.slf4j.Slf4j;
 
 import java.time.Duration;
 
 import static com.codeborne.selenide.Selenide.$x;
+import static io.qameta.allure.model.Parameter.Mode.MASKED;
 
 @Slf4j
 public class FormTwo {
@@ -21,15 +25,16 @@ public class FormTwo {
     private final SelenideElement buttonSumbit = $x("//form[@id='validationForm']//button[@id='valSubmitBtn']").as("кнопка отправки формы");
     private final SelenideElement errorMessage = $x("//div[@id='valFormResult']//p[contains(text(), 'Форма содержит ошибки')]");
 
-    public void enterForm(String userName, String email, String password) {
+    @Step("Заполняем форму")
+    public void enterForm(String userName, String email, @Param(mode=MASKED)String password) {
         enterUserName(userName);
         enterEmail(email);
         enterPassword(password);
         enterPasswordConfirm(password);
         clickButton();
     }
-
-    public void enterForm(String userName, String email, String password, String enterPassword) {
+    @Step("Заполняем форму")
+    public void enterForm(String userName, String email, @Param(mode=MASKED)String password, @Param(mode=MASKED)String enterPassword) {
         enterUserName(userName);
         enterEmail(email);
         enterPassword(password);
@@ -37,29 +42,35 @@ public class FormTwo {
         clickButton();
     }
 
+    @Step("Вводим имя '{username}'")
     private void enterUserName(String userName){
         userNameField.shouldBe(Condition.visible, Duration.ofSeconds(10));
         userNameField.setValue(userName);
     }
 
+    @Step("Вводим email '{email}'")
     private void enterEmail(String email){
         emailField.shouldBe(Condition.visible, Duration.ofSeconds(10));
         emailField.setValue(email);
     }
 
-    private void enterPassword(String password){
+    @Step("Вводим пароль")
+    private void enterPassword(@Param(mode=MASKED)String password){
         passwordField.shouldBe(Condition.visible, Duration.ofSeconds(10));
         passwordField.setValue(password);
     }
 
-    private void enterPasswordConfirm(String password){
+    @Step("Подтверждаем пароль")
+    private void enterPasswordConfirm(@Param(mode=MASKED)String password){
         passwordConfirmField.shouldBe(Condition.visible, Duration.ofSeconds(10));
         passwordConfirmField.setValue(password);
     }
 
+    @Step("Отправляем форму")
     private void clickButton(){
         buttonSumbit.click();
     }
+
 
     public String getMessage(String nameElement){
         String message = "";

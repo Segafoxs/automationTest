@@ -3,6 +3,7 @@ package pages.forms;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import lombok.extern.slf4j.Slf4j;
 
 import java.time.Duration;
@@ -27,11 +28,13 @@ public class FormThree {
     private final ElementsCollection buttonDeleteEmailField = $$x("//button[@onclick='removeEmailField(this)']").as("кнопка удаления поля email");
     private final ElementsCollection buttonDeletePhoneField = $$x("//button[@onclick='removePhoneField(this)']").as("кнопка удаления телефона");
 
+    @Step("Вводим имя '{name}'")
     public void enterName(String name) {
         nameField.shouldBe(Condition.visible, Duration.ofSeconds(10));
         nameField.setValue(name);
     }
 
+    @Step("Вводим email '{email}'")
     public void enterEmail(String... email) {
         List<String> listPhone = Arrays.asList(email);
         for (int i = 0; i < emailField.size(); i++) {
@@ -39,6 +42,7 @@ public class FormThree {
         }
     }
 
+    @Step("Вводим телефон '{phone}'")
     public void enterPhone(String... phone) {
         List<String> listPhone = Arrays.asList(phone);
         for (int i = 0; i < phoneField.size(); i++) {
@@ -46,7 +50,7 @@ public class FormThree {
         }
     }
 
-
+    @Step("Отправляем форму")
     public void clickButtonSubmit() {
         buttonSubmit.click();
     }
@@ -75,6 +79,7 @@ public class FormThree {
         return message;
     }
 
+    @Step("Добавляем поле '{nameField}', в количестве '{count}'")
     public void clickAddButton(String nameField, int count) {
         for (int i = 0; i < count; i++) {
             if (nameField.equals("email")) {
@@ -87,9 +92,10 @@ public class FormThree {
         }
     }
 
+    @Step("Удаляем поле '{field}'")
     public void clickDeleteButton(String field) {
         SelenideElement buttonDelete = null;
-        switch (field) {
+        switch (field.toLowerCase()) {
             case "email":
                 if (buttonDeleteEmailField.size() >= 1) {
                     buttonDelete = buttonDeleteEmailField.get(1);

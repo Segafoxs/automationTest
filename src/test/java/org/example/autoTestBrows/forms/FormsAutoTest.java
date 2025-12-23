@@ -1,9 +1,8 @@
 package org.example.autoTestBrows.forms;
 
 import Utils.TestProperties;
-import io.qameta.allure.Flaky;
+import io.qameta.allure.*;
 import messageError.MessageError;
-import io.qameta.allure.Description;
 import lombok.extern.slf4j.Slf4j;
 import org.example.WebHook;
 import org.junit.jupiter.api.DisplayName;
@@ -11,10 +10,14 @@ import org.junit.jupiter.api.Test;
 import pages.forms.FormOne;
 import pages.forms.FormThree;
 import pages.forms.FormTwo;
+
+import static io.qameta.allure.SeverityLevel.BLOCKER;
+import static io.qameta.allure.SeverityLevel.NORMAL;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Slf4j
+@Link(name = "WEB Sandbox", url = "https://aqa-proka4.org/sandbox/web")
 public class FormsAutoTest extends WebHook {
     private final FormOne formOne = new FormOne();
     private final FormTwo formTwo = new FormTwo();
@@ -23,6 +26,8 @@ public class FormsAutoTest extends WebHook {
     @Test
     @DisplayName("Тестирование формы регистрации №1")
     @Description("Данный тест проверяет работу формы №1")
+    @Epic("Регистрация")
+    @Severity(BLOCKER)
     public void testFormOne(){
         formOne.enterForms(TestProperties.getProperty("user.name"), TestProperties.getProperty("user.email"),
                 TestProperties.getProperty("user.password"), TestProperties.getProperty("user.country"));
@@ -31,6 +36,8 @@ public class FormsAutoTest extends WebHook {
     @Test
     @DisplayName("Тестирование формы регистрации с валидацией №2")
     @Description("Данный тест проверяет работу формы №2")
+    @Epic("Регистрация")
+    @Severity(BLOCKER)
     public void testFormTwo(){
         formTwo.enterForm(TestProperties.getProperty("user.name"), TestProperties.getProperty("user.email"),
                 TestProperties.getProperty("user.password"));
@@ -38,7 +45,9 @@ public class FormsAutoTest extends WebHook {
 
     @Test
     @DisplayName("Тестирование формы регистрации с валидацией №2")
-    @Description("Данный тест проверяет валидацию формы №2")
+    @Description("Данный тест проверяет корректность валидации формы №2")
+    @Feature("Валидация")
+    @Severity(NORMAL)
     public void testFormTwoStepTwo(){
         formTwo.enterForm(TestProperties.getProperty("user.name.error"), TestProperties.getProperty("user.email.error"),
                 TestProperties.getProperty("user.password.error"),TestProperties.getProperty("user.password.error")+"23");
@@ -52,6 +61,7 @@ public class FormsAutoTest extends WebHook {
     @DisplayName("Тестирование динамической формы регистрации №3")
     @Description("Данный тест проверяет работу формы №3 с динамическими полями " +
             "и структуру сообщения об успешной отправке формы")
+    @Severity(BLOCKER)
     public void testFormThree(){
         formThree.enterName(TestProperties.getProperty("user.name"));
         formThree.enterEmail(TestProperties.getProperty("user.email"));
@@ -65,8 +75,10 @@ public class FormsAutoTest extends WebHook {
 
     @Test
     @DisplayName("Тестирование динамической формы регистрации №3")
-    @Description("Данный тест проверяет работу формы №3 с динамическими полями " +
+    @Description("Данный тест проверяет корректность работы кнопок \"Добавить email\" и кнопки \"Добавить телефон\" формы №3 с динамическими полями " +
             "и структуру сообщения об успешной отправке формы")
+    @Feature("Добавить поле")
+    @Severity(BLOCKER)
     public void testFormThreeStepTwo(){
         int countEmailField = 2;
         int countPhoneField = 1;
@@ -89,6 +101,8 @@ public class FormsAutoTest extends WebHook {
     @DisplayName("Тестирование динамической формы регистрации №3")
     @Description("Данный тест проверяет работу кнопки удаления поля формы №3")
     @Flaky
+    @Feature("Удаление поля")
+    @Severity(BLOCKER)
     public void testFormThreeStepThree() throws Exception {
         int countEmailField = 3;
         int countPhoneField = 1;
