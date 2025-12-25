@@ -6,6 +6,7 @@ import messageError.MessageError;
 import lombok.extern.slf4j.Slf4j;
 import org.example.WebHook;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.forms.FormOne;
 import pages.forms.FormThree;
@@ -24,6 +25,7 @@ public class FormsAutoTest extends WebHook {
     private final FormThree formThree = new FormThree();
 
     @Test
+    @Tag("forms")
     @DisplayName("Тестирование формы регистрации №1")
     @Description("Данный тест проверяет работу формы №1")
     @Epic("Регистрация")
@@ -34,6 +36,7 @@ public class FormsAutoTest extends WebHook {
     }
 
     @Test
+    @Tag("forms")
     @DisplayName("Тестирование формы регистрации с валидацией №2")
     @Description("Данный тест проверяет работу формы №2")
     @Epic("Регистрация")
@@ -44,6 +47,7 @@ public class FormsAutoTest extends WebHook {
     }
 
     @Test
+    @Tag("forms")
     @DisplayName("Тестирование формы регистрации с валидацией №2")
     @Description("Данный тест проверяет корректность валидации формы №2")
     @Feature("Валидация")
@@ -58,6 +62,7 @@ public class FormsAutoTest extends WebHook {
     }
 
     @Test
+    @Tag("forms")
     @DisplayName("Тестирование динамической формы регистрации №3")
     @Description("Данный тест проверяет работу формы №3 с динамическими полями " +
             "и структуру сообщения об успешной отправке формы")
@@ -74,6 +79,7 @@ public class FormsAutoTest extends WebHook {
     }
 
     @Test
+    @Tag("forms")
     @DisplayName("Тестирование динамической формы регистрации №3")
     @Description("Данный тест проверяет корректность работы кнопок \"Добавить email\" и кнопки \"Добавить телефон\" формы №3 с динамическими полями " +
             "и структуру сообщения об успешной отправке формы")
@@ -98,6 +104,7 @@ public class FormsAutoTest extends WebHook {
     }
 
     @Test
+    @Tag("forms")
     @DisplayName("Тестирование динамической формы регистрации №3")
     @Description("Данный тест проверяет работу кнопки удаления поля формы №3")
     @Flaky

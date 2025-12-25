@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import messageError.MessageError;
 import org.example.WebHook;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.tables.TableFour;
 import pages.tables.TableOne;
@@ -26,6 +27,7 @@ public class TablesAutoTest extends WebHook {
     private final TableFour tableFour = new TableFour();
 
     @Test
+    @Tag("tables")
     @DisplayName("Проверка структуры таблицы №1")
     @Description("Этот тест проверяет структуры таблицы №1")
     @Severity(MINOR)
@@ -38,6 +40,7 @@ public class TablesAutoTest extends WebHook {
     }
 
     @Test
+    @Tag("tables")
     @DisplayName("Проверка содержимого таблицы №1")
     @Description("Этот тест проверяет содержимое таблицы №1")
     @Severity(NORMAL)
@@ -57,6 +60,7 @@ public class TablesAutoTest extends WebHook {
     }
 
     @Test
+    @Tag("tables")
     @DisplayName("Проверка таблицы с сортировкой №2")
     @Description("Этот тест проверяет сортировку по возрастанию таблицы №2. Столбец id")
     @Feature("Сортировка столбца")
@@ -70,6 +74,7 @@ public class TablesAutoTest extends WebHook {
     }
 
     @Test
+    @Tag("tables")
     @DisplayName("Проверка таблицы с сортировкой №2")
     @Description("Этот тест проверяет сортировку по убыванию таблицы №2. Столбец id")
     @Feature("Сортировка столбца")
@@ -84,6 +89,7 @@ public class TablesAutoTest extends WebHook {
     }
 
     @Test
+    @Tag("tables")
     @DisplayName("Проверка таблицы с сортировкой №2")
     @Description("Этот тест проверяет сортировку по возрастанию таблицы №2. Столбец Name")
     @Feature("Сортировка столбца")
@@ -101,6 +107,7 @@ public class TablesAutoTest extends WebHook {
     }
 
     @Test
+    @Tag("tables")
     @DisplayName("Проверка таблицы с сортировкой №2")
     @Description("Этот тест проверяет сортировку по убыванию таблицы №2. Столбец Name")
     @Feature("Сортировка столбца")
@@ -119,6 +126,7 @@ public class TablesAutoTest extends WebHook {
     }
 
     @Test
+    @Tag("tables")
     @DisplayName("Проверка таблицы с сортировкой №2")
     @Description("Этот тест проверяет сортировку по возрастанию таблицы №2. Столбец age")
     @Feature("Сортировка столбца")
@@ -132,6 +140,7 @@ public class TablesAutoTest extends WebHook {
     }
 
     @Test
+    @Tag("tables")
     @DisplayName("Проверка таблицы с сортировкой №2")
     @Description("Этот тест проверяет сортировку по убыванию таблицы №2. Столбец age")
     @Feature("Сортировка столбца")
@@ -146,6 +155,7 @@ public class TablesAutoTest extends WebHook {
     }
 
     @Test
+    @Tag("tables")
     @DisplayName("Проверка таблицы с сортировкой №2")
     @Description("Этот тест проверяет сортировку по возрастанию таблицы №2. Столбец Salary")
     @Feature("Сортировка столбца")
@@ -159,6 +169,7 @@ public class TablesAutoTest extends WebHook {
     }
 
     @Test
+    @Tag("tables")
     @DisplayName("Проверка таблицы с сортировкой №2")
     @Description("Этот тест проверяет сортировку по возрастанию таблицы №2. Столбец Salary")
     @Feature("Сортировка столбца")
@@ -173,6 +184,7 @@ public class TablesAutoTest extends WebHook {
     }
 
     @Test
+    @Tag("tables")
     @DisplayName("Проверка таблицы №3 с фильтрацией")
     @Description("Этот тест проверяет фильтрацию таблицы №3 по имени")
     @Feature("Фильтрация по имени")
@@ -194,6 +206,7 @@ public class TablesAutoTest extends WebHook {
     }
 
     @Test
+    @Tag("tables")
     @DisplayName("Проверка таблицы №3 с фильтрацией")
     @Description("Этот тест проверяет фильтрацию таблицы №3 по имени")
     @Feature("Фильтрация по имени")
@@ -210,6 +223,7 @@ public class TablesAutoTest extends WebHook {
     }
 
     @Test
+    @Tag("tables")
     @DisplayName("Проверка таблицы №3 с фильтрацией")
     @Description("Этот тест проверяет фильтрацию таблицы №3 по статусу \"Active\"")
     @Feature("Фильтрация по статусу")
@@ -245,6 +259,7 @@ public class TablesAutoTest extends WebHook {
     }
 
     @Test
+    @Tag("tables")
     @DisplayName("Проверка таблицы №3 с фильтрацией")
     @Description("Этот тест проверяет фильтрацию таблицы №3 по статусу \"Inactive\"")
     @Feature("Фильтрация по статусу")
@@ -272,6 +287,7 @@ public class TablesAutoTest extends WebHook {
     }
 
     @Test
+    @Tag("tables")
     @DisplayName("Проверка таблицы №3 с фильтрацией")
     @Description("Этот тест проверяет фильтрацию таблицы №3 по статусу \"Pending\"")
     @Feature("Фильтрация по статусу")
@@ -291,6 +307,7 @@ public class TablesAutoTest extends WebHook {
     }
 
     @Test
+    @Tag("tables")
     @DisplayName("Проверка таблицы №4 с пагинацией")
     @Description("Тест проверяет корректность работы количества отображаемых записей")
     @Feature("Увеличение количества отображаемых записей")
@@ -304,6 +321,7 @@ public class TablesAutoTest extends WebHook {
     }
 
     @Test
+    @Tag("tables")
     @DisplayName("Проверка таблицы №4 с пагинацией")
     @Description("Тест проверяет корректность работы кнопки \"Следующая страница\"")
     @Severity(BLOCKER)
@@ -316,6 +334,7 @@ public class TablesAutoTest extends WebHook {
     }
 
     @Test
+    @Tag("tables")
     @DisplayName("Проверка таблицы №4 с пагинацией")
     @Description("Тест проверяет корректность работы кнопки \"Последняя страница\"")
     @Severity(BLOCKER)
@@ -328,6 +347,7 @@ public class TablesAutoTest extends WebHook {
     }
 
     @Test
+    @Tag("tables")
     @DisplayName("Проверка таблицы №4 с пагинацией")
     @Description("Тест проверяет корректность работы кнопки \"Первая страница\"")
     @Severity(BLOCKER)
@@ -341,6 +361,7 @@ public class TablesAutoTest extends WebHook {
     }
 
     @Test
+    @Tag("tables")
     @DisplayName("Проверка таблицы №4 с пагинацией")
     @Description("Тест проверяет корректность работы кнопки \"Предыдущая страница\"")
     @Severity(BLOCKER)
@@ -352,10 +373,4 @@ public class TablesAutoTest extends WebHook {
         assertEquals(4, numberCurrentPage, MessageError.INVALID_NUMBER_PAGE.getMessage());
         assertEquals(3, numberFirstPage, MessageError.INVALID_NUMBER_PAGE.getMessage());
     }
-
-
-
-
-
-
 }
