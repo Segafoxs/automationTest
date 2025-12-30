@@ -11,7 +11,9 @@ public enum MessageError {
     INVALID_SORT("Неверная сортировка по: %s"),
     INVALID_FIELD("Неверное значение поля: %s"),
     INVALID_COUNT_RECORDS("Неверное количество записей"),
-    INVALID_NUMBER_PAGE("Неверный номер страницы");
+    INVALID_NUMBER_PAGE("Неверный номер страницы"),
+    INVALID_COUNT_ELEMENTS("Неверное количество элементов"),
+    INVALID_COUNT_TASKS("Неверное количество задач");
     private final String message;
 
     MessageError(String message){

@@ -1,6 +1,7 @@
 package org.example.autoTestBrows.modalWindows;
 
 import io.qameta.allure.Description;
+import io.qameta.allure.Link;
 import org.example.WebHook;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -11,6 +12,7 @@ import pages.modalWindows.ModalWindowTwo;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@Link(name = "WEB Sandbox", url = "https://aqa-proka4.org/sandbox/web")
 public class ModalWindowsAutoTest extends WebHook {
     private final ModalWindowOne modalWindowOne = new ModalWindowOne();
     private final ModalWindowTwo modalWindowTwo = new ModalWindowTwo();
