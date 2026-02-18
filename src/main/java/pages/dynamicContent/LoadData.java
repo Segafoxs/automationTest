@@ -16,7 +16,7 @@ import static com.codeborne.selenide.Selenide.$x;
 
 @Slf4j
 public class LoadData {
-    private final SelenideElement buttonLoadData = $x("//button[@id='loadAjaxBtn']").as("Кнопка \"Загрузить данные\"");
+    private final SelenideElement buttonLoadData =  $x("//button[@id='loadAjaxBtn']").as("Кнопка \"Загрузить данные\"");
     private final ElementsCollection tableHead = $$x("//div[@id='ajaxContent']//table/thead/tr/th").as("Колонки таблицы");
     private final ElementsCollection tableLine = $$x("//div[@id='ajaxContent']//table/tbody/tr").as("Строки таблицы");
 

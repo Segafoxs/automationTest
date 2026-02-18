@@ -9,18 +9,19 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.time.Duration;
 
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 import static io.qameta.allure.model.Parameter.Mode.MASKED;
 
 @Slf4j
 public class FormOne {
-    private final SelenideElement userNameField = $x("//form[@id='registrationForm']//input[@id='username']").as("имя пользователя");
-    private final SelenideElement emailField = $x("//form[@id='registrationForm']//input[@id='email']").as("email");
-    private final SelenideElement passwordField = $x("//form[@id='registrationForm']//input[@id='password']").as("пароль");
-    private final SelenideElement countryField = $x("//form[@id='registrationForm']//select[@id='country']").as("страна проживания");
-    private final SelenideElement terms = $x("//form[@id='registrationForm']//input[@id='terms']").as("чекбокс");
-    private final SelenideElement submitButtom = $x("//form[@id='registrationForm']//button[@id='submitBtn']").as("кнопка отправки формы");
-    private final SelenideElement successyText = $x("//div[@id='formResult']//p").as("сообщение об успешной отправке");
+    private final SelenideElement userNameField = $("[name='username']").as("имя пользователя");
+    private final SelenideElement emailField = $("[name='email']").as("email");
+    private final SelenideElement passwordField = $("[name='password']").as("пароль");
+    private final SelenideElement countryField = $("[name='country']").as("страна проживания");
+    private final SelenideElement terms = $("[name='terms']").as("чекбокс");
+    private final SelenideElement submitButtom = $("[id='submitBtn']").as("кнопка отправки формы");
+    private final SelenideElement successyText = $x("//div[@id='formResult']//p[contains(@class, 'text-green-800')]").as("сообщение об успешной отправке");
 
     @Step("Заполняем форму")
     public void enterForms(String userName, String email,
