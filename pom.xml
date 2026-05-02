@@ -23,6 +23,7 @@
     <maven.compiler.target>17</maven.compiler.target>
     <slf4j.version>2.0.17</slf4j.version>
     <logback.version>1.5.20</logback.version>
+    <apache.version>3.17.0</apache.version>
   </properties>
 
   <dependencyManagement>
@@ -138,6 +139,11 @@
       <artifactId>logback-classic</artifactId>
       <version>${logback.version}</version>
       <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>${apache.version}</version>
     </dependency>
   </dependencies>
 </project>
